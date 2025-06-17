@@ -74,18 +74,7 @@ def camino_a_acciones(camino):
         acciones.append({"accion": "avanza", "espacio": pasos})
 
     return acciones
-'''
-def imprimir_laberinto_con_camino(laberinto, camino):
-    laberinto_con_camino = [fila[:] for fila in laberinto]  # copia profunda
-    for fila, col in camino:
-        if laberinto_con_camino[fila][col] == ' ':
-            laberinto_con_camino[fila][col] = 'I'  # marcar el camino
-
-    print("\nSolución del laberinto:\n")
-    for fila in laberinto_con_camino:
-        print(''.join(fila))
-    print()
-'''    
+   
 def imprimir_laberinto_con_camino(laberinto, camino):
     laberinto_con_camino = [fila[:] for fila in laberinto]  # copia profunda
     camino_set = set(camino)  # para búsqueda rápida
