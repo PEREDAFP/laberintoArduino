@@ -107,19 +107,33 @@ void paro();
 #include <AFMotor.h>
 #include <RobotMovimiento.h>
 
-RobotMovimiento robot(1, 2, 12.0);  // Motores en M1 y M2, distancia entre ruedas: 12 cm
+RobotMovimiento robot(1, 2);
 
+// Debes ajustar el radio, la distancia de ruedas y los rpm a tu robot en particular.
+//Ten en cuenta que cada motor, cada batería es un mundo diferente.
 void setup() {
-  robot.adelante(50, 60, 60, 3.0);   // Avanza 50 cm
+  float radio_rueda = 1.5;
+  float distancia_ruedas = 16.0;
+  int rpm = 100;
+
+  robot.adelante(60, rpm, radio_rueda);
   delay(1000);
-  robot.izquierda(50, 50, 3.0);      // Gira 90° izquierda
+  robot.izquierda(radio_rueda, distancia_ruedas, rpm);
   delay(1000);
-  robot.derecha(50, 50, 3.0);        // Gira 90° derecha
+  robot.derecha(radio_rueda, distancia_ruedas, rpm);
   delay(1000);
-  robot.paro();                      // Se detiene
+  robot.derecha(radio_rueda, distancia_ruedas, rpm);
+  delay(1000);
+  robot.izquierda(radio_rueda, distancia_ruedas, rpm);
+  delay(1000);
+  robot.adelante(60, rpm, radio_rueda);
+  delay(1000);
+
+  robot.paro();
 }
 
 void loop() {}
+
 ```
 
 ---
