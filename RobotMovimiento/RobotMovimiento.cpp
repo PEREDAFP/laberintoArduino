@@ -32,13 +32,13 @@ void RobotMovimiento::adelante(float distancia_cm, int rpm, float radio_cm) {
 
 void RobotMovimiento::izquierda(float radio_cm, float distancia_ruedas_cm, int rpm) {
   float arco = (PI * distancia_ruedas_cm) / 4.0;  // giro 90°
-  moverMotores(rpm, rpm, false, true);  // motor izquierdo atrás, derecho adelante
+  moverMotores(rpm, rpm, true, false);  // motor izquierdo atrás, derecho adelante
   esperarTiempo(arco, rpm, radio_cm);
 }
 
 void RobotMovimiento::derecha(float radio_cm, float distancia_ruedas_cm, int rpm) {
   float arco = (PI * distancia_ruedas_cm) / 4.0;  // giro 90°
-  moverMotores(rpm, rpm, true, false);  // motor izquierdo adelante, derecho atrás
+  moverMotores(rpm, rpm, false, true);  // motor izquierdo adelante, derecho atrás
   esperarTiempo(arco, rpm, radio_cm);
 }
 
